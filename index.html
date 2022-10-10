@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edrich - Lab 5</title>
+</head>
+<body>
+    <h1>Convert Fahrenheit to Celsius</h1>
+    <script type="text/javascript">
+        // would normally initialize to set variable type here but doing so does not allow for parseFloat usage later
+        let degF;
+        let degC;
+
+        // get input from user with data restrictions: not a number, less than -100, greater than 212, or empty
+        // loops until valid data provided
+        do {
+            degF = prompt('Enter degree in Fahrenheit for conversion:');
+            // alert user input is invalid
+            if (isNaN(degF) || degF < -100 || degF > 212 || degF === '') {
+                alert('Invalid temperature entered.\n Please enter a temperature between -100° and 212°');
+            }
+            // convert provided F temp to C
+            else {
+                degF = parseFloat(degF);
+                degC = (degF - 32) * (5/9);
+            }
+        } while (isNaN(degF) || degF < -100 || degF > 212 || degF === '');
+        // string concatenation version
+        /*
+        document.write('<p>Degrees in Fahrenheit: ' + degF + '°</p>');
+        document.write('<p>Degrees in Celsius: ' + degC.toFixed(1) + '°</p>');
+         */
+        // template literal version
+        document.write(`<p>Degrees in Fahrenheit: ${degF}°</p>`);
+        document.write(`<p>Degrees in Celsius: ${degC.toFixed(1)}°</p>`);
+    </script>
+</body>
+</html>
